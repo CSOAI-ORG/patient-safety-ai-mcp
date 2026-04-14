@@ -1,3 +1,19 @@
 name: patient-safety-ai-mcp
-description: MEOK AI Labs - Upatient safety ai
+description: MEOK AI Labs - AI Governance & Compliance
 version: 1.0.0
+tools:
+- name: check_drug_interaction
+  description: ''
+  parameters:
+  - name: drugs
+    type: array
+    required: true
+- name: allergy_alert
+  description: ''
+  parameters:
+  - name: medication
+    type: string
+    required: true
+  - name: allergies
+    type: array
+    required: true
