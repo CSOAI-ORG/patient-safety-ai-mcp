@@ -1,0 +1,58 @@
+{
+  "name": "patient-safety-ai",
+  "description": "Check drug interactions, validate dosages, assess patient risk, and generate safety alerts. Uses evidence-based reference data. Not a substitute for clinical judgement.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/patient-safety-ai-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "check_drug_interactions",
+      "description": "Check known drug interaction databases for a list of medications. Pass drugs as comma-separated string."
+    },
+    {
+      "name": "assess_patient_risk",
+      "description": "Risk scoring based on patient conditions, age, and comorbidities. Conditions and medications as comma-separated strings."
+    },
+    {
+      "name": "validate_dosage",
+      "description": "Check dosage against known safe ranges for a medication."
+    },
+    {
+      "name": "generate_safety_alert",
+      "description": "Create a formatted clinical safety alert. Alert types: interaction, allergy, dosage, contraindication."
+    },
+    {
+      "name": "check_allergy_conflicts",
+      "description": "Cross-reference a medication against patient allergies including cross-reactivity. Allergies as comma-separated string."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Data & Analytics",
+    "Developer Tools"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
