@@ -1,6 +1,6 @@
 name: patient-safety-ai-mcp
-description: Check drug interactions, validate dosages, assess patient risk, and generate
-  safety alerts. Uses evi
+description: AI-powered patient safety ai MCP server for agents. Supports check drug
+  interactions, assess patient risk, validate dosage. By MEOK AI Labs.
 version: 1.0.0
 tools:
 - name: check_drug_interactions

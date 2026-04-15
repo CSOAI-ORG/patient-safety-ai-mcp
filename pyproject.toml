@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 [project]
 name = "patient-safety-ai-mcp"
 version = "1.0.0"
-description = "MEOK AI Labs — patient-safety-ai-mcp"
+description = "AI-powered patient safety ai MCP server for agents. Supports check drug interactions, assess patient risk, validate dosage. By MEOK AI Labs."
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
