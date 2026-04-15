@@ -72,11 +72,11 @@ ALLERGY_CROSS_REACTIVITY = {
     "cephalosporin": ["cefuroxime", "ceftriaxone", "cefalexin"],
 }
 
-mcp = FastMCP("patient-safety-ai-mcp", instructions="Check drug interactions, validate dosages, assess patient risk, and generate safety alerts. Uses evidence-based reference data. Not a substitute for clinical judgement.")
+mcp = FastMCP("patient-safety-ai", instructions="Check drug interactions, validate dosages, assess patient risk, and generate safety alerts. Uses evidence-based reference data. Not a substitute for clinical judgement.")
 
 
 @mcp.tool()
-async def check_drug_interactions(drugs: str, api_key: str = "") -> str:
+def check_drug_interactions(drugs: str, api_key: str = "") -> str:
     """Check known drug interaction databases for a list of medications. Pass drugs as comma-separated string."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -146,7 +146,7 @@ async def check_drug_interactions(drugs: str, api_key: str = "") -> str:
 
 
 @mcp.tool()
-async def assess_patient_risk(age: int, conditions: str, medications: str, bmi: float = 0.0, smoker: bool = False, api_key: str = "") -> str:
+def assess_patient_risk(age: int, conditions: str, medications: str, bmi: float = 0.0, smoker: bool = False, api_key: str = "") -> str:
     """Risk scoring based on patient conditions, age, and comorbidities. Conditions and medications as comma-separated strings."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -238,7 +238,7 @@ async def assess_patient_risk(age: int, conditions: str, medications: str, bmi: 
 
 
 @mcp.tool()
-async def validate_dosage(drug: str, dose_mg: float, frequency_per_day: int = 1, patient_age: int = 0, patient_weight_kg: float = 0.0, api_key: str = "") -> str:
+def validate_dosage(drug: str, dose_mg: float, frequency_per_day: int = 1, patient_age: int = 0, patient_weight_kg: float = 0.0, api_key: str = "") -> str:
     """Check dosage against known safe ranges for a medication."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -330,7 +330,7 @@ async def validate_dosage(drug: str, dose_mg: float, frequency_per_day: int = 1,
 
 
 @mcp.tool()
-async def generate_safety_alert(drug: str, alert_type: str, severity: str = "moderate", patient_id: str = "", details: str = "", api_key: str = "") -> str:
+def generate_safety_alert(drug: str, alert_type: str, severity: str = "moderate", patient_id: str = "", details: str = "", api_key: str = "") -> str:
     """Create a formatted clinical safety alert. Alert types: interaction, allergy, dosage, contraindication."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:
@@ -383,7 +383,7 @@ async def generate_safety_alert(drug: str, alert_type: str, severity: str = "mod
 
 
 @mcp.tool()
-async def check_allergy_conflicts(medication: str, allergies: str, api_key: str = "") -> str:
+def check_allergy_conflicts(medication: str, allergies: str, api_key: str = "") -> str:
     """Cross-reference a medication against patient allergies including cross-reactivity. Allergies as comma-separated string."""
     allowed, msg, tier = check_access(api_key)
     if not allowed:

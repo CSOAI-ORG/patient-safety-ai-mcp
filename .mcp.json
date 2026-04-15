@@ -1,16 +1,16 @@
 {
   "name": "patient-safety-ai-mcp",
-  "description": "MEOK AI Labs - AI Governance & Compliance",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Check drug interactions, validate dosages, assess patient risk, and generate safety alerts. Uses evi",
   "version": "1.0.0",
   "tools": [
     {
-      "name": "check_drug_interaction",
-      "description": "",
+      "name": "check_drug_interactions",
+      "description": "Check known drug interaction databases for a list of medications. Pass drugs as comma-separated string.",
       "parameters": {
         "type": "object",
         "properties": {
           "drugs": {
-            "type": "array"
+            "type": "string"
           }
         },
         "required": [
@@ -19,8 +19,93 @@
       }
     },
     {
-      "name": "allergy_alert",
-      "description": "",
+      "name": "assess_patient_risk",
+      "description": "Risk scoring based on patient conditions, age, and comorbidities. Conditions and medications as comma-separated strings.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "age": {
+            "type": "integer"
+          },
+          "conditions": {
+            "type": "string"
+          },
+          "medications": {
+            "type": "string"
+          },
+          "bmi": {
+            "type": "number"
+          },
+          "smoker": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "age",
+          "conditions",
+          "medications"
+        ]
+      }
+    },
+    {
+      "name": "validate_dosage",
+      "description": "Check dosage against known safe ranges for a medication.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "drug": {
+            "type": "string"
+          },
+          "dose_mg": {
+            "type": "number"
+          },
+          "frequency_per_day": {
+            "type": "integer"
+          },
+          "patient_age": {
+            "type": "integer"
+          },
+          "patient_weight_kg": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "drug",
+          "dose_mg"
+        ]
+      }
+    },
+    {
+      "name": "generate_safety_alert",
+      "description": "Create a formatted clinical safety alert. Alert types: interaction, allergy, dosage, contraindication.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "drug": {
+            "type": "string"
+          },
+          "alert_type": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "patient_id": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "drug",
+          "alert_type"
+        ]
+      }
+    },
+    {
+      "name": "check_allergy_conflicts",
+      "description": "Cross-reference a medication against patient allergies including cross-reactivity. Allergies as comma-separated string.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -28,7 +113,7 @@
             "type": "string"
           },
           "allergies": {
-            "type": "array"
+            "type": "string"
           }
         },
         "required": [

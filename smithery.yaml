@@ -1,19 +1,78 @@
 name: patient-safety-ai-mcp
-description: MEOK AI Labs - AI Governance & Compliance
+description: Check drug interactions, validate dosages, assess patient risk, and generate
+  safety alerts. Uses evi
 version: 1.0.0
 tools:
-- name: check_drug_interaction
-  description: ''
+- name: check_drug_interactions
+  description: Check known drug interaction databases for a list of medications. Pass
+    drugs as comma-separated string.
   parameters:
   - name: drugs
-    type: array
+    type: string
     required: true
-- name: allergy_alert
-  description: ''
+- name: assess_patient_risk
+  description: Risk scoring based on patient conditions, age, and comorbidities. Conditions
+    and medications as comma-separated strings.
+  parameters:
+  - name: age
+    type: integer
+    required: true
+  - name: conditions
+    type: string
+    required: true
+  - name: medications
+    type: string
+    required: true
+  - name: bmi
+    type: number
+    required: false
+  - name: smoker
+    type: boolean
+    required: false
+- name: validate_dosage
+  description: Check dosage against known safe ranges for a medication.
+  parameters:
+  - name: drug
+    type: string
+    required: true
+  - name: dose_mg
+    type: number
+    required: true
+  - name: frequency_per_day
+    type: integer
+    required: false
+  - name: patient_age
+    type: integer
+    required: false
+  - name: patient_weight_kg
+    type: number
+    required: false
+- name: generate_safety_alert
+  description: 'Create a formatted clinical safety alert. Alert types: interaction,
+    allergy, dosage, contraindication.'
+  parameters:
+  - name: drug
+    type: string
+    required: true
+  - name: alert_type
+    type: string
+    required: true
+  - name: severity
+    type: string
+    required: false
+  - name: patient_id
+    type: string
+    required: false
+  - name: details
+    type: string
+    required: false
+- name: check_allergy_conflicts
+  description: Cross-reference a medication against patient allergies including cross-reactivity.
+    Allergies as comma-separated string.
   parameters:
   - name: medication
     type: string
     required: true
   - name: allergies
-    type: array
+    type: string
     required: true
