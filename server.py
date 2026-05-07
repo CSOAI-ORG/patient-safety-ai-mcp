@@ -93,6 +93,11 @@ def check_drug_interactions(drugs: str, api_key: str = "") -> str:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        drugs (str): The drugs to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -193,6 +198,15 @@ def assess_patient_risk(age: int, conditions: str, medications: str, bmi: float 
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        age (int): The age to analyze or process.
+        conditions (str): The conditions to analyze or process.
+        medications (str): The medications to analyze or process.
+        bmi (float): The bmi to analyze or process.
+        smoker (bool): The smoker to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -315,6 +329,15 @@ def validate_dosage(drug: str, dose_mg: float, frequency_per_day: int = 1, patie
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        drug (str): The drug to analyze or process.
+        dose_mg (float): The dose mg to analyze or process.
+        frequency_per_day (int): The frequency per day to analyze or process.
+        patient_age (int): The patient age to analyze or process.
+        patient_weight_kg (float): The patient weight kg to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -436,6 +459,15 @@ def generate_safety_alert(drug: str, alert_type: str, severity: str = "moderate"
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        drug (str): The drug to analyze or process.
+        alert_type (str): The alert type to analyze or process.
+        severity (str): The severity to analyze or process.
+        patient_id (str): The patient id to analyze or process.
+        details (str): The details to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -519,6 +551,12 @@ def check_allergy_conflicts(medication: str, allergies: str, api_key: str = "") 
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        medication (str): The medication to analyze or process.
+        allergies (str): The allergies to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
