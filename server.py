@@ -77,7 +77,23 @@ mcp = FastMCP("patient-safety-ai", instructions="Check drug interactions, valida
 
 @mcp.tool()
 def check_drug_interactions(drugs: str, api_key: str = "") -> str:
-    """Check known drug interaction databases for a list of medications. Pass drugs as comma-separated string."""
+    """Check known drug interaction databases for a list of medications. Pass drugs as comma-separated string.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
@@ -147,7 +163,23 @@ def check_drug_interactions(drugs: str, api_key: str = "") -> str:
 
 @mcp.tool()
 def assess_patient_risk(age: int, conditions: str, medications: str, bmi: float = 0.0, smoker: bool = False, api_key: str = "") -> str:
-    """Risk scoring based on patient conditions, age, and comorbidities. Conditions and medications as comma-separated strings."""
+    """Risk scoring based on patient conditions, age, and comorbidities. Conditions and medications as comma-separated strings.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
@@ -239,7 +271,23 @@ def assess_patient_risk(age: int, conditions: str, medications: str, bmi: float 
 
 @mcp.tool()
 def validate_dosage(drug: str, dose_mg: float, frequency_per_day: int = 1, patient_age: int = 0, patient_weight_kg: float = 0.0, api_key: str = "") -> str:
-    """Check dosage against known safe ranges for a medication."""
+    """Check dosage against known safe ranges for a medication.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
@@ -331,7 +379,22 @@ def validate_dosage(drug: str, dose_mg: float, frequency_per_day: int = 1, patie
 
 @mcp.tool()
 def generate_safety_alert(drug: str, alert_type: str, severity: str = "moderate", patient_id: str = "", details: str = "", api_key: str = "") -> str:
-    """Create a formatted clinical safety alert. Alert types: interaction, allergy, dosage, contraindication."""
+    """Create a formatted clinical safety alert. Alert types: interaction, allergy, dosage, contraindication.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
@@ -384,7 +447,23 @@ def generate_safety_alert(drug: str, alert_type: str, severity: str = "moderate"
 
 @mcp.tool()
 def check_allergy_conflicts(medication: str, allergies: str, api_key: str = "") -> str:
-    """Cross-reference a medication against patient allergies including cross-reactivity. Allergies as comma-separated string."""
+    """Cross-reference a medication against patient allergies including cross-reactivity. Allergies as comma-separated string.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
