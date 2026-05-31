@@ -1,59 +1,78 @@
-<div align="center">
-
 # Patient Safety Ai MCP
 
-**MCP server for patient safety ai mcp operations**
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/patient_safety_ai_mcp/)
 
-[![PyPI](https://img.shields.io/pypi/v/meok-patient-safety-ai-mcp)](https://pypi.org/project/meok-patient-safety-ai-mcp/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-MCP_Server-purple)](https://meok.ai)
+> Check drug interactions, validate dosages, assess patient risk, and generate safety alerts
 
-</div>
+Check drug interactions, validate dosages, assess patient risk, and generate safety alerts. Uses evidence-based reference data. Not a substitute for clinical judgement.
 
-## Overview
+---
 
-Patient Safety Ai MCP provides AI-powered tools via the Model Context Protocol (MCP).
-
-## Tools
-
-| Tool | Description |
-|------|-------------|
-| `check_drug_interactions` | Check known drug interaction databases for a list of medications. Pass drugs as  |
-| `assess_patient_risk` | Risk scoring based on patient conditions, age, and comorbidities. Conditions and |
-| `validate_dosage` | Check dosage against known safe ranges for a medication. |
-| `generate_safety_alert` | Create a formatted clinical safety alert. Alert types: interaction, allergy, dos |
-| `check_allergy_conflicts` | Cross-reference a medication against patient allergies including cross-reactivit |
-
-## Installation
+## 🚀 Quick Start
 
 ```bash
-pip install meok-patient-safety-ai-mcp
+# Install via pip
+pip install patient_safety_ai_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install patient-safety-ai-mcp --client claude
 ```
 
-## Usage with Claude Desktop
+## ✨ Features
 
-Add to your Claude Desktop MCP config (`claude_desktop_config.json`):
+- Real-time AI safety monitoring
+- Byzantine fault-tolerant consensus
+- EU AI Act compliance tracking
+- Incident alert system
+- Multi-agent governance
 
-```json
-{
-  "mcpServers": {
-    "patient-safety-ai": {
-      "command": "python",
-      "args": ["-m", "meok_patient_safety_ai_mcp.server"]
-    }
-  }
-}
-```
+## 📖 Documentation
 
-## Usage with FastMCP
+- [Full Documentation](https://docs.meok.ai/patient-safety-ai-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-```python
-from mcp.server.fastmcp import FastMCP
+## 🛡️ Compliance
 
-# This server exposes 5 tool(s) via MCP
-# See server.py for full implementation
-```
+This MCP server is built with **EU AI Act compliance** built-in:
 
-## License
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
 
-MIT © [MEOK AI Labs](https://meok.ai)
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
+
+## 🏢 Enterprise
+
+Need custom development, SLA guarantees, or white-label deployment?
+
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
+
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
+
+## 🤝 Part of the MEOK Ecosystem
+
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
+
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
+
+## 📜 License
+
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
+
+---
+
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
