@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Patient Safety AI MCP Server - Drug interactions, dosage validation, and safety alerts."""
+"""
+Patient Safety AI MCP Server - Drug interactions, dosage validation, and safety alerts."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import json, time
@@ -115,7 +115,7 @@ def check_drug_interactions(drugs: str, api_key: str = "") -> str:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return json.dumps({"error": msg, "upgrade_url": "https://councilof.ai"})
     if not _check_rate(api_key or "anon"):
         return json.dumps({"error": "Rate limit exceeded. Try again in 60 seconds."})
 
@@ -224,7 +224,7 @@ def assess_patient_risk(age: int, conditions: str, medications: str, bmi: float 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return json.dumps({"error": msg, "upgrade_url": "https://councilof.ai"})
     if not _check_rate(api_key or "anon"):
         return json.dumps({"error": "Rate limit exceeded. Try again in 60 seconds."})
 
@@ -355,7 +355,7 @@ def validate_dosage(drug: str, dose_mg: float, frequency_per_day: int = 1, patie
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return json.dumps({"error": msg, "upgrade_url": "https://councilof.ai"})
     if not _check_rate(api_key or "anon"):
         return json.dumps({"error": "Rate limit exceeded. Try again in 60 seconds."})
 
@@ -485,7 +485,7 @@ def generate_safety_alert(drug: str, alert_type: str, severity: str = "moderate"
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return json.dumps({"error": msg, "upgrade_url": "https://councilof.ai"})
     if not _check_rate(api_key or "anon"):
         return json.dumps({"error": "Rate limit exceeded. Try again in 60 seconds."})
 
@@ -574,7 +574,7 @@ def check_allergy_conflicts(medication: str, allergies: str, api_key: str = "") 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return json.dumps({"error": msg, "upgrade_url": "https://meok.ai/pricing"})
+        return json.dumps({"error": msg, "upgrade_url": "https://councilof.ai"})
     if not _check_rate(api_key or "anon"):
         return json.dumps({"error": "Rate limit exceeded. Try again in 60 seconds."})
 
@@ -633,5 +633,8 @@ def check_allergy_conflicts(medication: str, allergies: str, api_key: str = "") 
     })
 
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

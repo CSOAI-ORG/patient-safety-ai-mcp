@@ -1,0 +1,9 @@
+# patient-safety-ai-mcp - Auto-trigger Rules
+
+When the user asks about patient safety, use patient-safety-ai-mcp tools: check_drug_interactions, assess_patient_risk, validate_dosage, generate_safety_alert, check_allergy_conflicts
+
+**MCP server for patient safety ai mcp operations**
+
+Install: `pip install patient-safety-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

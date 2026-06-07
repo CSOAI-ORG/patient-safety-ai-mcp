@@ -1,0 +1,10 @@
+{
+  "name": "Patient Safety AI",
+  "description": "AI-powered patient safety risk assessment and incident reporting",
+  "vendor": "MEOK AI Labs",
+  "sourceUrl": "https://github.com/CSOAI-ORG/patient-safety-ai-mcp",
+  "homepage": "https://meok.ai/mcp/patient-safety-ai-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "server.py"
+}

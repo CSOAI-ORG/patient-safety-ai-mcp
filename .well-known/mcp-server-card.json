@@ -1,0 +1,28 @@
+{
+  "name": "patient-safety-ai-mcp",
+  "title": "Patient Safety Ai Mcp",
+  "description": "AI-powered patient safety ai MCP server for agents. Supports check drug interactions, assess patient risk, validate dosage. By MEOK AI Labs.",
+  "version": "1.0.10",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "check_drug_interactions"
+    },
+    {
+      "name": "assess_patient_risk"
+    },
+    {
+      "name": "validate_dosage"
+    },
+    {
+      "name": "generate_safety_alert"
+    },
+    {
+      "name": "check_allergy_conflicts"
+    }
+  ]
+}
