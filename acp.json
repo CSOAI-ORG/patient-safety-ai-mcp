@@ -1,0 +1,23 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "patient-safety-ai-mcp",
+    "description": "Patient Safety Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.10",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "patient-safety-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "check_drug_interactions",
+      "assess_patient_risk",
+      "validate_dosage",
+      "generate_safety_alert",
+      "check_allergy_conflicts"
+    ]
+  }
+}
