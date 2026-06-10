@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "patient-safety-ai-mcp"
-version = "1.0.10"
+version = "1.0.11"
 readme = "README.md"
 description = "AI-powered patient safety ai MCP server for agents. Supports check drug interactions, assess patient risk, validate dosage. By MEOK AI Labs."
 license = {file = "LICENSE"}
